@@ -1,0 +1,1201 @@
+<title>Mbayu's Hometheater — Cinematic Home Theater Design</title>
+<meta name="description" content="Mbayu's Hometheater designs and installs custom home theater systems in Waldorf, MD. Immersive sound, perfect picture, built for your space.">
+
+<style>
+  :root {
+    --bg:       #080810;
+    --bg-2:     #111120;
+    --bg-3:     #1a1a2e;
+    --border:   #252535;
+    --gold:     #C9A84C;
+    --gold-dim: #8a6e2a;
+    --text:     #A09880;
+    --heading:  #F2EDE6;
+    --muted:    #5a5870;
+    --serif: 'Didot','Bodoni MT','Bodoni 72',Georgia,serif;
+    --sans: -apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+    --max: 1200px;
+  }
+  @media(prefers-color-scheme:light){:root{
+    --bg:#F5F2EC;--bg-2:#EDEAE2;--bg-3:#E4E0D6;--border:#D0CAB8;
+    --gold:#9A6E1A;--gold-dim:#C49A3A;--text:#5C5648;--heading:#1A1810;--muted:#9A9080;
+  }}
+  :root[data-theme="dark"]{--bg:#080810;--bg-2:#111120;--bg-3:#1a1a2e;--border:#252535;--gold:#C9A84C;--gold-dim:#8a6e2a;--text:#A09880;--heading:#F2EDE6;--muted:#5a5870;}
+  :root[data-theme="light"]{--bg:#F5F2EC;--bg-2:#EDEAE2;--bg-3:#E4E0D6;--border:#D0CAB8;--gold:#9A6E1A;--gold-dim:#C49A3A;--text:#5C5648;--heading:#1A1810;--muted:#9A9080;}
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:1rem;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;}}
+
+  /* Nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 2rem;background:linear-gradient(to bottom,rgba(8,8,16,0.96) 0%,transparent 100%);backdrop-filter:blur(2px);}
+  .nav-brand{font-family:var(--serif);font-size:1.1rem;letter-spacing:.08em;color:var(--heading);}
+  .nav-brand span{color:var(--gold);}
+  .nav-links{display:flex;gap:1.8rem;list-style:none;}
+  .nav-links a{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text);transition:color .2s;}
+  .nav-links a:hover{color:var(--gold);}
+
+  /* Hero */
+  .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(ellipse at center,rgba(201,168,76,.12) 0%,transparent 70%);pointer-events:none;}
+  .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;}
+  .hero-eyebrow{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;}
+  .hero-title{font-family:var(--serif);font-size:clamp(3rem,8vw,7rem);font-weight:400;color:var(--heading);line-height:1.0;letter-spacing:-.01em;text-wrap:balance;margin-bottom:.25em;}
+  .hero-title em{font-style:italic;color:var(--gold);}
+  .hero-rule{width:80px;height:1px;background:var(--gold);margin:2rem auto;opacity:.6;}
+  .hero-sub{font-size:1.05rem;color:var(--text);max-width:480px;line-height:1.8;}
+  .hero-cta{margin-top:2rem;display:inline-block;padding:.9rem 2.5rem;border:1px solid var(--gold);color:var(--gold);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;transition:background .25s,color .25s;}
+  .hero-cta:hover{background:var(--gold);color:var(--bg);}
+
+  /* Shared */
+  section{padding:6rem 2rem;}
+  .container{max-width:var(--max);margin:0 auto;}
+  .section-eyebrow{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+  .section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;color:var(--heading);line-height:1.1;text-wrap:balance;}
+  .section-header{margin-bottom:3.5rem;}
+
+  /* Process */
+  #process{background:var(--bg-2);}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3.5rem;}
+  .process-step{padding:2rem 1.5rem;border:1px solid var(--border);position:relative;transition:border-color .2s;}
+  .process-step:hover{border-color:var(--gold-dim);}
+  .process-step::after{content:'';position:absolute;top:50%;right:-1rem;width:2rem;height:1px;background:var(--border);}
+  .process-step:last-child::after{display:none;}
+  .process-num{font-family:var(--serif);font-size:2.5rem;color:var(--gold);opacity:.3;line-height:1;margin-bottom:1rem;}
+  .process-name{font-family:var(--serif);font-size:1.1rem;color:var(--heading);margin-bottom:.6rem;}
+  .process-desc{font-size:.88rem;line-height:1.7;color:var(--text);}
+
+  /* About */
+  #about{background:var(--bg);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+  .about-visual{position:relative;aspect-ratio:4/5;background:var(--bg-3);overflow:hidden;}
+  .about-img{width:100%;height:100%;object-fit:cover;display:block;}
+  .about-body{margin-top:2rem;font-size:1.05rem;line-height:1.9;color:var(--text);}
+  .about-body p+p{margin-top:1.2em;}
+  .about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);}
+  .stat-number{font-family:var(--serif);font-size:2.5rem;font-weight:400;color:var(--gold);font-variant-numeric:tabular-nums;line-height:1;}
+  .stat-label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.4rem;}
+
+  /* Services */
+  #services{background:var(--bg-2);}
+  .services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid var(--border);}
+  .services-list{list-style:none;}
+  .service-item{display:grid;grid-template-columns:80px 1fr auto;gap:2rem;align-items:start;padding:2.5rem 0;border-bottom:1px solid var(--border);transition:background .2s;}
+  .service-item:hover{background:var(--bg-3);margin:0 -2rem;padding:2.5rem 2rem;}
+  .service-num{font-family:var(--serif);font-size:.85rem;color:var(--gold);font-variant-numeric:tabular-nums;padding-top:.3rem;}
+  .service-name{font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.7rem);font-weight:400;color:var(--heading);margin-bottom:.5rem;line-height:1.2;}
+  .service-desc{font-size:.92rem;color:var(--text);max-width:55ch;line-height:1.8;}
+  .service-price{font-size:.78rem;letter-spacing:.08em;color:var(--gold);margin-top:.6rem;font-variant-numeric:tabular-nums;}
+  .service-right{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;}
+  .service-arrow{color:var(--gold-dim);font-size:1.2rem;transition:transform .2s,color .2s;}
+  .service-item:hover .service-arrow{transform:translate(4px,-4px);color:var(--gold);}
+
+  /* Portfolio */
+  #portfolio{background:var(--bg);}
+  .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+  .portfolio-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:4/3;background:var(--bg-3);}
+  .portfolio-canvas{width:100%;height:100%;display:block;}
+  .portfolio-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+  .portfolio-item:hover .portfolio-img{transform:scale(1.04);}
+  .portfolio-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,16,.9) 0%,transparent 60%);opacity:0;transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;}
+  .portfolio-item:hover .portfolio-overlay{opacity:1;}
+  .portfolio-label{font-family:var(--serif);font-size:1.1rem;color:var(--heading);}
+  .portfolio-sub{font-size:.78rem;color:var(--gold);letter-spacing:.1em;margin-top:.3rem;}
+
+  /* Brands */
+  #brands{background:var(--bg-2);padding:3.5rem 2rem;}
+  .brands-label{text-align:center;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2.5rem;}
+  .brands-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:3rem;}
+  .brand-name{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--muted);letter-spacing:.1em;transition:color .2s;}
+  .brand-name:hover{color:var(--gold);}
+
+  /* Testimonials */
+  #testimonials{background:var(--bg);}
+  .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem;}
+  .testimonial-card{background:var(--bg-2);border:1px solid var(--border);padding:2rem;display:flex;flex-direction:column;gap:1.2rem;transition:border-color .2s;}
+  .testimonial-card:hover{border-color:var(--gold-dim);}
+  .stars{color:var(--gold);font-size:.9rem;letter-spacing:.1em;}
+  .testimonial-text{font-size:.95rem;line-height:1.8;color:var(--text);font-style:italic;}
+  .testimonial-author{display:flex;flex-direction:column;gap:.2rem;padding-top:1rem;border-top:1px solid var(--border);}
+  .author-name{font-size:.88rem;color:var(--heading);font-weight:500;}
+  .author-detail{font-size:.75rem;color:var(--muted);}
+
+  /* FAQ */
+  #faq{background:var(--bg-2);}
+  .faq-list{margin-top:3rem;display:flex;flex-direction:column;gap:.5rem;}
+  .faq-item{border:1px solid var(--border);overflow:hidden;}
+  .faq-question{width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 1.8rem;background:none;border:none;color:var(--heading);font-family:var(--sans);font-size:1rem;text-align:left;cursor:pointer;gap:1rem;transition:background .2s;}
+  .faq-question:hover{background:var(--bg-3);}
+  .faq-icon{color:var(--gold);font-size:1.2rem;flex-shrink:0;transition:transform .25s;}
+  .faq-item.open .faq-icon{transform:rotate(45deg);}
+  .faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;}
+  .faq-item.open .faq-answer{max-height:300px;}
+  .faq-answer-inner{padding:.2rem 1.8rem 1.4rem;font-size:.95rem;line-height:1.8;color:var(--text);}
+
+  /* Blog */
+  #blog{background:var(--bg);}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem;}
+  .blog-card{display:flex;flex-direction:column;gap:1rem;cursor:pointer;}
+  .blog-thumb{aspect-ratio:16/9;background:var(--bg-3);overflow:hidden;}
+  .blog-thumb-canvas{width:100%;height:100%;display:block;}
+  .blog-thumb-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+  .blog-card:hover .blog-thumb-img{transform:scale(1.04);}
+  .blog-eyebrow{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+  .blog-title{font-family:var(--serif);font-size:1.15rem;color:var(--heading);line-height:1.3;transition:color .2s;}
+  .blog-card:hover .blog-title{color:var(--gold);}
+  .blog-excerpt{font-size:.88rem;line-height:1.7;color:var(--text);}
+  .blog-meta{font-size:.75rem;color:var(--muted);}
+
+  /* Booking */
+  #booking{background:var(--bg-2);}
+  .booking-inner{text-align:center;max-width:600px;margin:0 auto;}
+  .booking-inner .section-title{margin-bottom:1rem;}
+  .booking-inner p{margin-bottom:2.5rem;line-height:1.8;}
+  .booking-btn{display:inline-block;padding:1.1rem 3rem;background:var(--gold);color:var(--bg);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;transition:opacity .2s;cursor:pointer;border:none;font-family:var(--sans);}
+  .booking-btn:hover{opacity:.85;}
+
+  /* Contact */
+  #contact{background:var(--bg);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:6rem;align-items:start;}
+  .contact-tagline{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:400;color:var(--heading);line-height:1.3;margin-top:1.5rem;margin-bottom:2rem;text-wrap:balance;}
+  .contact-detail{display:flex;flex-direction:column;gap:1.2rem;margin-top:2.5rem;}
+  .contact-detail-item{display:flex;flex-direction:column;gap:.2rem;}
+  .contact-detail-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
+  .contact-detail-value{font-size:.95rem;color:var(--heading);}
+  .map-wrap{margin-top:2rem;overflow:hidden;border:1px solid var(--border);}
+  .map-wrap iframe{display:block;width:100%;height:220px;border:none;filter:grayscale(1) invert(var(--map-invert,0)) hue-rotate(var(--map-hue,0deg));}
+  .contact-form{display:flex;flex-direction:column;gap:1.5rem;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .form-group{display:flex;flex-direction:column;gap:.5rem;}
+  .form-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
+  .form-input,.form-select,.form-textarea{background:var(--bg-3);border:1px solid var(--border);color:var(--heading);font-family:var(--sans);font-size:.95rem;padding:.85rem 1rem;outline:none;transition:border-color .2s;width:100%;appearance:none;}
+  .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);}
+  .form-input:focus-visible,.form-select:focus-visible,.form-textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  .form-textarea{resize:vertical;min-height:120px;}
+  .form-submit{background:var(--gold);color:var(--bg);border:none;padding:1rem 2.5rem;font-family:var(--sans);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:opacity .2s;align-self:flex-start;}
+  .form-submit:hover{opacity:.85;}
+  .form-submit:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+  /* Chat */
+  .chat-bubble{position:fixed;bottom:5.5rem;right:1.5rem;z-index:300;background:var(--gold);color:var(--bg);width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;cursor:pointer;box-shadow:0 4px 20px rgba(201,168,76,.35);transition:transform .2s,box-shadow .2s;}
+  .chat-bubble:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(201,168,76,.5);}
+  .chat-panel{position:fixed;bottom:8.5rem;right:1.5rem;z-index:300;width:300px;background:var(--bg-2);border:1px solid var(--border);display:none;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,.4);}
+  .chat-panel.open{display:flex;}
+  .chat-header{padding:1rem 1.2rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+  .chat-title{font-size:.85rem;color:var(--heading);}
+  .chat-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1rem;}
+  .chat-body{padding:1.2rem;font-size:.88rem;line-height:1.7;color:var(--text);}
+  .chat-link{display:block;margin-top:1rem;padding:.7rem 1rem;background:var(--gold);color:var(--bg);text-align:center;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;}
+
+  /* ── Room Visualizer ── */
+  .viz-section{padding:6rem 0;background:var(--bg-2);}
+  .viz-header{text-align:center;margin-bottom:3rem;}
+  .viz-subtitle{color:var(--text);max-width:52ch;margin:.9rem auto 0;font-size:.95rem;line-height:1.7;}
+  .viz-stage{border:1px solid var(--border);border-radius:2px;overflow:hidden;background:#05050e;}
+  #roomCanvas{width:100%;height:420px;display:block;}
+  .viz-toolbar{display:flex;gap:.5rem;padding:.7rem 1rem;background:rgba(0,0,0,.55);border-top:1px solid var(--border);flex-wrap:wrap;justify-content:center;}
+  .viz-tbtn{background:none;border:1px solid var(--border);color:var(--muted);width:42px;height:42px;border-radius:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s;flex-shrink:0;}
+  .viz-tbtn svg{width:19px;height:19px;pointer-events:none;}
+  .viz-tbtn:hover{border-color:var(--gold);color:var(--gold);}
+  .viz-tbtn.active{background:var(--gold);border-color:var(--gold);color:var(--bg);}
+  .viz-tbtn.active svg{stroke:var(--bg);}
+  .viz-info{display:grid;grid-template-columns:1fr 1px 1fr;margin-top:1.5rem;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+  .viz-divider-v{background:var(--border);}
+  .viz-highlights,.viz-dimensions{padding:2rem 2.2rem;}
+  .viz-info-title{font-family:var(--serif);font-size:1.05rem;color:var(--heading);letter-spacing:.05em;margin-bottom:1.4rem;}
+  .viz-spec{margin-bottom:1.25rem;}
+  .viz-spec-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.35rem;}
+  .viz-spec-val{color:var(--heading);font-size:.97rem;}
+  .viz-progress{height:5px;background:var(--border);border-radius:3px;margin:.35rem 0 .3rem;overflow:hidden;}
+  .viz-progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#2563eb,#60a5fa);}
+  .viz-progress-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:#60a5fa;}
+  .viz-dim-canvas-wrap{margin:.4rem 0 1.1rem;}
+  #dimCanvas{width:100%;height:150px;display:block;}
+  .viz-dim-list{display:flex;flex-direction:column;gap:.5rem;}
+  .viz-dim-row{display:flex;justify-content:space-between;align-items:center;font-size:.87rem;}
+  .viz-dim-row .dim-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);}
+  .viz-dim-row .dim-val{color:var(--heading);font-variant-numeric:tabular-nums;}
+  .viz-badge{display:inline-block;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(201,168,76,.12);color:var(--gold);border:1px solid var(--gold-dim);padding:.15rem .5rem;border-radius:2px;margin-top:.9rem;}
+  @media(max-width:640px){.viz-info{grid-template-columns:1fr;}.viz-divider-v{width:100%;height:1px;}.viz-highlights,.viz-dimensions{padding:1.5rem;}}
+
+  /* WhatsApp */
+  .whatsapp-btn{position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;background:#25D366;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform .2s;}
+  .whatsapp-btn:hover{transform:scale(1.08);}
+
+  /* Footer */
+  footer{background:var(--bg-2);border-top:1px solid var(--border);padding:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+  .footer-brand{font-family:var(--serif);font-size:.95rem;color:var(--heading);letter-spacing:.05em;}
+  .footer-links{display:flex;gap:1.5rem;list-style:none;}
+  .footer-links a{font-size:.75rem;color:var(--muted);transition:color .2s;}
+  .footer-links a:hover{color:var(--gold);}
+  .footer-copy{font-size:.75rem;color:var(--muted);}
+
+  /* Responsive */
+  @media(max-width:900px){
+    .about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem;}
+    .process-grid{grid-template-columns:repeat(2,1fr);}
+    .process-step::after{display:none;}
+    .portfolio-grid,.testimonials-grid,.blog-grid{grid-template-columns:repeat(2,1fr);}
+    .services-header{flex-direction:column;align-items:flex-start;gap:1.5rem;}
+    .service-item{grid-template-columns:60px 1fr;}
+    .service-right{display:none;}
+    .form-row{grid-template-columns:1fr;}
+    nav{padding:1.2rem 1.5rem;}
+  }
+  @media(max-width:600px){
+    section{padding:4rem 1.5rem;}
+    .portfolio-grid,.testimonials-grid,.blog-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:1fr;}
+    .about-stats{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+    .brands-row{gap:2rem;}
+    footer{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-brand">Mbayu's <span>Hometheater</span></a>
+  <ul class="nav-links">
+    <li><a href="#process">Process</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <p class="hero-eyebrow">Custom Home Theater Design · Waldorf, MD</p>
+  <h1 class="hero-title">Your Room.<br><em>Your Cinema.</em></h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">We design immersive home theaters built around how you actually watch — the picture, the sound, the feeling of being there.</p>
+  <a href="#booking" class="hero-cta">Book a Free Consultation</a>
+</header>
+
+<!-- Process -->
+<section id="process">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">How It Works</p>
+      <h2 class="section-title">From conversation to cinema</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div class="process-name">Consult</div>
+        <p class="process-desc">We talk through your space, your goals, and your budget. No pressure — just an honest conversation about what's possible.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div class="process-name">Design</div>
+        <p class="process-desc">We create a full room plan — layout, acoustics, equipment, lighting — tailored exactly to your space.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div class="process-name">Install</div>
+        <p class="process-desc">Our team handles everything: mounting, wiring, calibration, smart home integration — clean and on schedule.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <div class="process-name">Enjoy</div>
+        <p class="process-desc">We walk you through the system and make sure everything feels right. Ongoing support included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">
+        <img class="about-img" src="https://images.unsplash.com/photo-tHElLgquKek?auto=format&fit=crop&w=800&q=80" alt="Luxury home theater room with recliner seating" loading="lazy">
+      </div>
+      <div class="about-content">
+        <p class="section-eyebrow">About</p>
+        <h2 class="section-title">Built on a passion for the perfect viewing experience</h2>
+        <div class="about-body">
+          <p>Mbayu's Hometheater was founded on a simple belief: every home deserves a space where sound and picture come together the way the director intended.</p>
+          <p>We handle everything — acoustics, screen placement, equipment selection, lighting control, and cable concealment — so you walk into a finished room that just works, every time.</p>
+          <p>No two rooms are the same. We design around your space, your taste, and your budget, not a template.</p>
+        </div>
+        <div class="about-stats">
+          <div><div class="stat-number">12+</div><div class="stat-label">Years Experience</div></div>
+          <div><div class="stat-number">200+</div><div class="stat-label">Rooms Built</div></div>
+          <div><div class="stat-number">4K</div><div class="stat-label">Ultra HD Ready</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Room Visualizer -->
+<section id="visualizer" class="viz-section">
+  <div class="container">
+    <div class="viz-header">
+      <p class="section-eyebrow">Design Preview</p>
+      <h2 class="section-title">See Your Theater Before We Build It</h2>
+      <p class="viz-subtitle">Every project starts with a room model. Here's a sample 7.2.4 Dolby Atmos build in a 20&prime; × 20&prime; room — switch views, toggle lighting, and explore the layout below.</p>
+    </div>
+
+    <div class="viz-stage">
+      <canvas id="roomCanvas"></canvas>
+      <div class="viz-toolbar">
+        <!-- 3D View -->
+        <button class="viz-tbtn active" data-view="3d" title="3D View">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12L12 6l10 6-10 6-10-6z"/><line x1="12" y1="6" x2="12" y2="18"/><line x1="2" y1="12" x2="12" y2="18"/><line x1="22" y1="12" x2="12" y2="18"/>
+          </svg>
+        </button>
+        <!-- Floor Plan -->
+        <button class="viz-tbtn" data-view="floor" title="Floor Plan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="10" y1="10" x2="10" y2="21"/>
+          </svg>
+        </button>
+        <!-- Dimensions -->
+        <button class="viz-tbtn" data-view="dims" title="Show Dimensions">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="9" x2="4" y2="20"/><line x1="20" y1="9" x2="20" y2="20"/><line x1="4" y1="14" x2="20" y2="14"/><polyline points="9,9 4,4 4,4 19,4 20,9"/>
+          </svg>
+        </button>
+        <!-- Lighting -->
+        <button class="viz-tbtn" data-view="light" title="Cycle Lighting">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+        <!-- Seating -->
+        <button class="viz-tbtn" data-view="seating" title="Seating Layout">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 11v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3"/><path d="M12 19v-4"/><path d="M5 19h14"/><rect x="5" y="5" width="14" height="6" rx="2"/>
+          </svg>
+        </button>
+        <!-- Audio -->
+        <button class="viz-tbtn" data-view="audio" title="Speaker Positions">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+        </button>
+        <!-- Zoom Out -->
+        <button class="viz-tbtn" id="zoomOut" title="Zoom Out">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </button>
+        <!-- Zoom In -->
+        <button class="viz-tbtn" id="zoomIn" title="Zoom In">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="viz-info">
+      <div class="viz-highlights">
+        <h3 class="viz-info-title">Highlights</h3>
+        <div class="viz-spec">
+          <div class="viz-spec-lbl">Immersive Level™</div>
+          <div class="viz-progress"><div class="viz-progress-fill" style="width:91%"></div></div>
+          <div class="viz-progress-lbl">Extreme</div>
+        </div>
+        <div class="viz-spec">
+          <div class="viz-spec-lbl">Speaker Channels</div>
+          <div class="viz-spec-val">7.2.4 Dolby Atmos</div>
+        </div>
+        <div class="viz-spec">
+          <div class="viz-spec-lbl">Screen</div>
+          <div class="viz-spec-val">120" Front Projection, 16:9</div>
+        </div>
+        <div class="viz-spec">
+          <div class="viz-spec-lbl">Projector</div>
+          <div class="viz-spec-val">4K Laser, HDR10+</div>
+        </div>
+        <div class="viz-badge">Custom Design by Mbayu's</div>
+      </div>
+      <div class="viz-divider-v"></div>
+      <div class="viz-dimensions">
+        <h3 class="viz-info-title">Dimensions</h3>
+        <div class="viz-dim-canvas-wrap">
+          <canvas id="dimCanvas"></canvas>
+        </div>
+        <div class="viz-dim-list">
+          <div class="viz-dim-row"><span class="dim-lbl">Height</span><span class="dim-val">9&prime; 0&Prime;</span></div>
+          <div class="viz-dim-row"><span class="dim-lbl">Width</span><span class="dim-val">20&prime; 0&Prime;</span></div>
+          <div class="viz-dim-row"><span class="dim-lbl">Depth</span><span class="dim-val">20&prime; 0&Prime;</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <p class="section-eyebrow">What We Do</p>
+        <h2 class="section-title">Services</h2>
+      </div>
+      <p style="max-width:30ch;text-align:right;font-size:.9rem;color:var(--muted);">End-to-end design and installation for dedicated home theaters and media rooms.</p>
+    </div>
+    <ul class="services-list">
+      <li class="service-item">
+        <span class="service-num">01</span>
+        <div>
+          <div class="service-name">Theater Room Design</div>
+          <p class="service-desc">Full room layout from scratch — screen size, seating arrangement, acoustic treatment, and lighting plan tailored to your space and viewing habits.</p>
+          <p class="service-price">Starting from $2,500</p>
+        </div>
+        <div class="service-right"><span class="service-arrow">↗</span></div>
+      </li>
+      <li class="service-item">
+        <span class="service-num">02</span>
+        <div>
+          <div class="service-name">Acoustic Treatment</div>
+          <p class="service-desc">Sound panels, bass traps, and diffusers positioned to eliminate echo and deliver studio-grade audio clarity without sacrificing the look of the room.</p>
+          <p class="service-price">Starting from $800</p>
+        </div>
+        <div class="service-right"><span class="service-arrow">↗</span></div>
+      </li>
+      <li class="service-item">
+        <span class="service-num">03</span>
+        <div>
+          <div class="service-name">Audio & Video Installation</div>
+          <p class="service-desc">Projectors, screens, 4K TVs, Dolby Atmos surround systems, and subwoofers — selected, calibrated, and installed for your exact room dimensions.</p>
+          <p class="service-price">Starting from $1,500</p>
+        </div>
+        <div class="service-right"><span class="service-arrow">↗</span></div>
+      </li>
+      <li class="service-item">
+        <span class="service-num">04</span>
+        <div>
+          <div class="service-name">Smart Home Integration</div>
+          <p class="service-desc">One-touch scene control. Lights dim, curtains close, and the system powers on — all from your phone, remote, or voice command.</p>
+          <p class="service-price">Starting from $1,200</p>
+        </div>
+        <div class="service-right"><span class="service-arrow">↗</span></div>
+      </li>
+      <li class="service-item">
+        <span class="service-num">05</span>
+        <div>
+          <div class="service-name">Media Room Upgrades</div>
+          <p class="service-desc">Already have a setup but want better? We audit your existing system and upgrade only what needs it — no unnecessary replacements.</p>
+          <p class="service-price">Starting from $500</p>
+        </div>
+        <div class="service-right"><span class="service-arrow">↗</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Our Work</p>
+      <h2 class="section-title">Recent projects</h2>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img class="portfolio-img" src="https://images.unsplash.com/photo-HHQ2cZTMwtc?auto=format&fit=crop&w=800&q=80" alt="Dedicated home theater" loading="lazy">
+        <div class="portfolio-overlay"><div class="portfolio-label">Dedicated Theater</div><div class="portfolio-sub">Waldorf, MD · 2025</div></div>
+      </div>
+      <div class="portfolio-item">
+        <img class="portfolio-img" src="https://images.unsplash.com/photo-GFNVoyqsmzg?auto=format&fit=crop&w=800&q=80" alt="Media room with cinema seating" loading="lazy">
+        <div class="portfolio-overlay"><div class="portfolio-label">Media Room</div><div class="portfolio-sub">Silver Spring, MD · 2025</div></div>
+      </div>
+      <div class="portfolio-item">
+        <img class="portfolio-img" src="https://images.unsplash.com/photo-2Mi6MVtslWc?auto=format&fit=crop&w=800&q=80" alt="Dolby Atmos surround sound installation" loading="lazy">
+        <div class="portfolio-overlay"><div class="portfolio-label">Dolby Atmos Install</div><div class="portfolio-sub">Alexandria, VA · 2024</div></div>
+      </div>
+      <div class="portfolio-item">
+        <img class="portfolio-img" src="https://images.unsplash.com/photo-GJKJXPYWt4c?auto=format&fit=crop&w=800&q=80" alt="Basement home theater conversion" loading="lazy">
+        <div class="portfolio-overlay"><div class="portfolio-label">Basement Conversion</div><div class="portfolio-sub">Clinton, MD · 2024</div></div>
+      </div>
+      <div class="portfolio-item">
+        <img class="portfolio-img" src="https://images.unsplash.com/photo-kRyJPPsLgbU?auto=format&fit=crop&w=800&q=80" alt="Smart home theater system" loading="lazy">
+        <div class="portfolio-overlay"><div class="portfolio-label">Smart Room Upgrade</div><div class="portfolio-sub">Washington, DC · 2024</div></div>
+      </div>
+      <div class="portfolio-item">
+        <img class="portfolio-img" src="https://images.unsplash.com/photo-BSR7LZNIsY4?auto=format&fit=crop&w=800&q=80" alt="Outdoor theater setup" loading="lazy">
+        <div class="portfolio-overlay"><div class="portfolio-label">Outdoor Theater</div><div class="portfolio-sub">Bowie, MD · 2024</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Brands -->
+<section id="brands">
+  <div class="container">
+    <p class="brands-label">Brands We Work With</p>
+    <div class="brands-row">
+      <span class="brand-name">SONY</span>
+      <span class="brand-name">SAMSUNG</span>
+      <span class="brand-name">BOSE</span>
+      <span class="brand-name">SONOS</span>
+      <span class="brand-name">DENON</span>
+      <span class="brand-name">LG</span>
+      <span class="brand-name">EPSON</span>
+      <span class="brand-name">CONTROL4</span>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Client Reviews</p>
+      <h2 class="section-title">What our clients say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Mbayu transformed our basement into a real cinema. The sound is unbelievable — my kids refuse to watch anything upstairs now. Worth every penny."</p>
+        <div class="testimonial-author"><span class="author-name">Marcus T.</span><span class="author-detail">Dedicated Theater · Waldorf, MD</span></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Professional from start to finish. They designed the whole room, handled all the wiring, and the smart lighting integration is seamless. One button and you're in movie mode."</p>
+        <div class="testimonial-author"><span class="author-name">Diane & Kevin R.</span><span class="author-detail">Media Room · Silver Spring, MD</span></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"I had an existing system that sounded muddy. They audited it, replaced two components, added acoustic panels, and now it sounds like a different room. Game changer."</p>
+        <div class="testimonial-author"><span class="author-name">James O.</span><span class="author-detail">System Upgrade · Alexandria, VA</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Common Questions</p>
+      <h2 class="section-title">FAQ</h2>
+    </div>
+    <ul class="faq-list" id="faqList">
+      <li class="faq-item">
+        <button class="faq-question">How much does a home theater cost?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Costs vary widely depending on room size and equipment. A media room upgrade can start around $500, while a fully dedicated theater with premium audio runs $10,000–$30,000+. We'll give you an honest estimate after the free consultation.</div></div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-question">How long does installation take?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">A simple upgrade can be done in a day. A full dedicated theater typically takes 3–7 days depending on scope — acoustic work, wiring, and calibration all take time to do properly.</div></div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-question">Do I need a dedicated room?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. We design both dedicated theaters and multi-use media rooms. A living room or basement can be transformed into an excellent viewing space with the right setup.</div></div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-question">What brands do you work with?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We work with Sony, Samsung, LG, Bose, Sonos, Denon, Epson, and Control4 among others. We recommend equipment based on your room and budget — not brand loyalty.</div></div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-question">Do you offer support after installation?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. Every install includes a full walkthrough and 30-day support. We're also available for ongoing maintenance, system upgrades, and any issues that come up down the line.</div></div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-question">What areas do you serve?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We're based in Waldorf, MD and serve the greater DMV area — including Washington DC, Northern Virginia, and throughout Maryland.</div></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Blog -->
+<section id="blog">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Tips & Guides</p>
+      <h2 class="section-title">Home theater advice</h2>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-thumb"><img class="blog-thumb-img" src="https://images.unsplash.com/photo-rLaVSasSKxI?auto=format&fit=crop&w=600&q=80" alt="Acoustic treatment panels" loading="lazy"></div>
+        <p class="blog-eyebrow">Acoustics</p>
+        <h3 class="blog-title">Why acoustic treatment matters more than your speakers</h3>
+        <p class="blog-excerpt">The room itself is an instrument. Even a $10,000 speaker system sounds muddy in an untreated space. Here's what to fix first.</p>
+        <p class="blog-meta">5 min read</p>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb"><img class="blog-thumb-img" src="https://images.unsplash.com/photo-EEZgog4AS5M?auto=format&fit=crop&w=600&q=80" alt="Projector and screen setup" loading="lazy"></div>
+        <p class="blog-eyebrow">Equipment</p>
+        <h3 class="blog-title">Projector vs. TV: which is right for your space?</h3>
+        <p class="blog-excerpt">Screen size, ambient light, and room depth all affect this decision. We break down when each makes sense.</p>
+        <p class="blog-meta">4 min read</p>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb"><img class="blog-thumb-img" src="https://images.unsplash.com/photo-i9QI5bXDXmc?auto=format&fit=crop&w=600&q=80" alt="Budget home theater setup" loading="lazy"></div>
+        <p class="blog-eyebrow">Design</p>
+        <h3 class="blog-title">How to design a home theater on a $3,000 budget</h3>
+        <p class="blog-excerpt">You don't need to spend a fortune to get a great experience. Smart choices in the right order make all the difference.</p>
+        <p class="blog-meta">6 min read</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Booking -->
+<section id="booking">
+  <div class="container">
+    <div class="booking-inner">
+      <p class="section-eyebrow">Free Consultation</p>
+      <h2 class="section-title">Ready to start?</h2>
+      <p>Book a free 30-minute consultation. We'll talk through your space, your goals, and give you an honest picture of what's possible — no obligation.</p>
+      <button class="booking-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Schedule a Free Call</button>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <p class="section-eyebrow">Get in Touch</p>
+        <h2 class="contact-tagline">Ready to build your perfect theater?</h2>
+        <p style="font-size:.95rem;line-height:1.8;">Tell us about your space and what you're going for. We'll reach back within one business day.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-item"><span class="contact-detail-label">Email</span><span class="contact-detail-value">kwmbayu@gmail.com</span></div>
+          <div class="contact-detail-item"><span class="contact-detail-label">Location</span><span class="contact-detail-value">Waldorf, MD — serving the DMV area</span></div>
+          <div class="contact-detail-item"><span class="contact-detail-label">Hours</span><span class="contact-detail-value">Mon – Sat, 9am – 6pm</span></div>
+        </div>
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49949.55!2d-76.9!3d38.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b0a1c58a1e3b%3A0x8f1c4e5a8b3d2f7c!2sWaldorf%2C%20MD!5e0!3m2!1sen!2sus!4v1" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label" for="fname">First Name</label><input class="form-input" type="text" id="fname" placeholder="John" required></div>
+          <div class="form-group"><label class="form-label" for="lname">Last Name</label><input class="form-input" type="text" id="lname" placeholder="Smith" required></div>
+        </div>
+        <div class="form-group"><label class="form-label" for="email">Email</label><input class="form-input" type="email" id="email" placeholder="you@example.com" required></div>
+        <div class="form-group"><label class="form-label" for="phone">Phone (optional)</label><input class="form-input" type="tel" id="phone" placeholder="(301) 555-0100"></div>
+        <div class="form-group">
+          <label class="form-label" for="service">Service Interested In</label>
+          <select class="form-select" id="service">
+            <option value="">Select a service</option>
+            <option>Theater Room Design</option>
+            <option>Acoustic Treatment</option>
+            <option>Audio & Video Installation</option>
+            <option>Smart Home Integration</option>
+            <option>Media Room Upgrade</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label" for="message">Tell us about your project</label><textarea class="form-textarea" id="message" placeholder="Room size, current setup, goals..."></textarea></div>
+        <button class="form-submit" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <span class="footer-brand">Mbayu's Hometheater</span>
+  <ul class="footer-links">
+    <li><a href="#process">Process</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 · Waldorf, MD</span>
+</footer>
+
+<!-- WhatsApp -->
+<a class="whatsapp-btn" href="https://wa.me/13015550100" target="_blank" title="Chat on WhatsApp" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Live Chat Bubble -->
+<div class="chat-bubble" onclick="toggleChat()" title="Live Chat" aria-label="Open chat">💬</div>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-header">
+    <span class="chat-title">Mbayu's Hometheater</span>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-body">
+    👋 Hi! Have a question about your home theater project? We typically reply within a few hours.
+    <a class="chat-link" href="mailto:kwmbayu@gmail.com">Send us an email</a>
+  </div>
+</div>
+
+<script>
+// ── Theater Canvas ──
+const canvas = document.getElementById('theaterCanvas');
+const ctx = canvas.getContext('2d');
+function resizeMain(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;}
+resizeMain();
+window.addEventListener('resize',resizeMain);
+
+const isDark=()=>{
+  const t=document.documentElement.getAttribute('data-theme');
+  if(t==='dark')return true;if(t==='light')return false;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+};
+
+function drawTheater(){
+  const w=canvas.width,h=canvas.height,dark=isDark();
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle=dark?'#111120':'#E4E0D6';ctx.fillRect(0,0,w,h);
+  const grd=ctx.createRadialGradient(w/2,0,0,w/2,0,h*.8);
+  grd.addColorStop(0,dark?'rgba(201,168,76,.08)':'rgba(154,110,26,.06)');grd.addColorStop(1,'transparent');
+  ctx.fillStyle=grd;ctx.fillRect(0,0,w,h);
+  const sw=w*.78,sh=sw*.45,sx=(w-sw)/2,sy=h*.08;
+  ctx.fillStyle=dark?'#0d0d1a':'#d8d3c8';
+  ctx.strokeStyle=dark?'rgba(201,168,76,.3)':'rgba(154,110,26,.25)';ctx.lineWidth=1;
+  ctx.fillRect(sx,sy,sw,sh);ctx.strokeRect(sx,sy,sw,sh);
+  const sg=ctx.createLinearGradient(sx,sy,sx,sy+sh);
+  sg.addColorStop(0,dark?'rgba(201,168,76,.05)':'rgba(154,110,26,.04)');sg.addColorStop(1,'transparent');
+  ctx.fillStyle=sg;ctx.fillRect(sx,sy,sw,sh);
+  const rows=[{y:h*.66,count:5,s:.85},{y:h*.80,count:6,s:1}];
+  rows.forEach(row=>{
+    const sW=28*row.s,sH=22*row.s,gap=10;
+    const total=row.count*(sW+gap)-gap,startX=(w-total)/2;
+    for(let i=0;i<row.count;i++){
+      const x=startX+i*(sW+gap);
+      ctx.fillStyle=dark?'#1e1e35':'#ccc6b8';ctx.fillRect(x,row.y-sH*.7,sW,sH*.75);
+      ctx.fillStyle=dark?'#252540':'#c4bfb0';ctx.fillRect(x,row.y,sW,sH*.45);
+      ctx.fillStyle=dark?'rgba(201,168,76,.15)':'rgba(154,110,26,.12)';
+      ctx.fillRect(x-3,row.y-sH*.7,3,sH*1.15);ctx.fillRect(x+sW,row.y-sH*.7,3,sH*1.15);
+    }
+  });
+  requestAnimationFrame(drawTheater);
+}
+drawTheater();
+
+// ── Portfolio Canvases ──
+const palettes={
+  dedicated:{bg:['#0d0d1a','#1a1228'],screen:'#1a1040',seat:'#1e1e35',accent:'rgba(201,168,76,.15)'},
+  media:{bg:['#101820','#0a1020'],screen:'#0a1830',seat:'#1a2030',accent:'rgba(76,140,201,.15)'},
+  atmos:{bg:['#120d1a','#1a0d28'],screen:'#200d40',seat:'#281e35',accent:'rgba(180,76,201,.15)'},
+  basement:{bg:['#0d1210','#0a1a14'],screen:'#0d2018',seat:'#1e3528',accent:'rgba(76,201,120,.15)'},
+  smart:{bg:['#181010','#281818'],screen:'#301010',seat:'#352020',accent:'rgba(201,100,76,.15)'},
+  outdoor:{bg:['#0a0d18','#10142a'],screen:'#0a1040',seat:'#1e2040',accent:'rgba(100,140,201,.15)'}
+};
+
+document.querySelectorAll('.portfolio-canvas').forEach(c=>{
+  const scene=c.dataset.scene;
+  const p=palettes[scene]||palettes.dedicated;
+  function draw(){
+    const w=c.offsetWidth,h=c.offsetHeight;
+    if(!w||!h)return;
+    c.width=w;c.height=h;
+    const cx=c.getContext('2d');
+    const bg=cx.createLinearGradient(0,0,0,h);
+    bg.addColorStop(0,p.bg[0]);bg.addColorStop(1,p.bg[1]);
+    cx.fillStyle=bg;cx.fillRect(0,0,w,h);
+    const sw=w*.82,sh=sw*.48,sx=(w-sw)/2,sy=h*.07;
+    cx.fillStyle=p.screen;cx.fillRect(sx,sy,sw,sh);
+    const sg=cx.createLinearGradient(sx,sy,sx,sy+sh);
+    sg.addColorStop(0,'rgba(255,255,255,.06)');sg.addColorStop(1,'transparent');
+    cx.fillStyle=sg;cx.fillRect(sx,sy,sw,sh);
+    cx.strokeStyle=p.accent.replace('.15','.4');cx.lineWidth=1;cx.strokeRect(sx,sy,sw,sh);
+    const rows=[{y:h*.68,n:4,s:.8},{y:h*.82,n:5,s:1}];
+    rows.forEach(row=>{
+      const sW=24*row.s,sH=18*row.s,gap=8;
+      const tot=row.n*(sW+gap)-gap,stX=(w-tot)/2;
+      for(let i=0;i<row.n;i++){
+        const x=stX+i*(sW+gap);
+        cx.fillStyle=p.seat;cx.fillRect(x,row.y-sH*.7,sW,sH*.75);
+        cx.fillStyle=p.accent;cx.fillRect(x-2,row.y-sH*.7,2,sH*1.1);cx.fillRect(x+sW,row.y-sH*.7,2,sH*1.1);
+      }
+    });
+    const gr=cx.createRadialGradient(w/2,sy+sh/2,0,w/2,sy+sh/2,sw*.6);
+    gr.addColorStop(0,'rgba(255,255,255,.04)');gr.addColorStop(1,'transparent');
+    cx.fillStyle=gr;cx.fillRect(0,0,w,h);
+  }
+  const ro=new ResizeObserver(draw);ro.observe(c);
+  draw();
+});
+
+// ── Blog Canvases ──
+const blogColors=[
+  {bg:'#0d1a14',accent:'rgba(76,201,120,.2)',lines:'rgba(76,201,120,.4)'},
+  {bg:'#0d0d1a',accent:'rgba(201,168,76,.2)',lines:'rgba(201,168,76,.4)'},
+  {bg:'#1a0d14',accent:'rgba(201,76,120,.2)',lines:'rgba(201,76,120,.4)'}
+];
+document.querySelectorAll('.blog-thumb-canvas').forEach((c,i)=>{
+  const p=blogColors[i%3];
+  function draw(){
+    const w=c.offsetWidth,h=c.offsetHeight;
+    if(!w||!h)return;c.width=w;c.height=h;
+    const cx=c.getContext('2d');
+    cx.fillStyle=p.bg;cx.fillRect(0,0,w,h);
+    cx.strokeStyle=p.lines;cx.lineWidth=1;
+    for(let y=0;y<h;y+=20){cx.globalAlpha=.15;cx.beginPath();cx.moveTo(0,y);cx.lineTo(w,y);cx.stroke();}
+    cx.globalAlpha=1;
+    const gr=cx.createRadialGradient(w/2,h/2,0,w/2,h/2,w*.6);
+    gr.addColorStop(0,p.accent);gr.addColorStop(1,'transparent');
+    cx.fillStyle=gr;cx.fillRect(0,0,w,h);
+  }
+  const ro=new ResizeObserver(draw);ro.observe(c);draw();
+});
+
+// ── FAQ Accordion ──
+document.querySelectorAll('.faq-question').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  });
+});
+
+// ── Chat ──
+function toggleChat(){
+  const p=document.getElementById('chatPanel');
+  p.classList.toggle('open');
+}
+
+// ── Form ──
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.form-submit');
+  btn.textContent='Message Sent ✓';btn.style.background='#4a7c4a';btn.disabled=true;
+  setTimeout(()=>{btn.textContent='Send Message';btn.style.background='';btn.disabled=false;e.target.reset();},4000);
+}
+
+// ── Room Visualizer ──
+(function(){
+  const rc=document.getElementById('roomCanvas');
+  if(!rc)return;
+  const rx=rc.getContext('2d');
+  let vizMode='3d',zoom=1,lightMode=0;
+  const LC=['rgba(255,255,255,.88)','rgba(255,175,55,.88)','rgba(80,130,255,.88)','rgba(0,0,0,0)'];
+
+  function resize(){rc.width=rc.offsetWidth;rc.height=rc.offsetHeight;draw();}
+
+  function poly(pts,fill,stroke,lw){
+    rx.beginPath();rx.moveTo(pts[0][0],pts[0][1]);
+    for(let i=1;i<pts.length;i++)rx.lineTo(pts[i][0],pts[i][1]);
+    rx.closePath();
+    if(fill){rx.fillStyle=fill;rx.fill();}
+    if(stroke){rx.strokeStyle=stroke;rx.lineWidth=lw||1;rx.stroke();}
+  }
+
+  function draw(){
+    const w=rc.width,h=rc.height;
+    rx.clearRect(0,0,w,h);
+    if(vizMode==='floor'){drawFloor(w,h);return;}
+
+    // Back-wall aperture (scaled by zoom)
+    const bx1=w*.5-w*.22*zoom, bx2=w*.5+w*.22*zoom;
+    const by1=h*.04, by2=h*.04+h*.62*zoom;
+
+    // ── Ceiling ──
+    const cg=rx.createLinearGradient(0,0,0,by1);
+    cg.addColorStop(0,'#090915');cg.addColorStop(1,'#0e0e24');
+    poly([[0,0],[bx1,by1],[bx2,by1],[w,0]],cg,'#18183a',1);
+
+    // Ceiling recessed lights
+    if(lightMode<3){
+      [.18,.38,.62,.82].forEach(fx=>{
+        const lx=w*fx,ly=3;
+        const cyl=rx.createRadialGradient(lx,ly+h*.15,0,lx,ly+h*.15,70);
+        cyl.addColorStop(0,LC[lightMode].replace('.88','.12'));cyl.addColorStop(1,'transparent');
+        rx.fillStyle=cyl;rx.fillRect(lx-70,ly,140,h*.3);
+        rx.beginPath();rx.arc(lx,ly,5,0,Math.PI*2);
+        rx.fillStyle=LC[lightMode];rx.fill();
+      });
+    }
+
+    // ── Left wall ──
+    const lwg=rx.createLinearGradient(0,0,bx1,0);
+    lwg.addColorStop(0,'#09091a');lwg.addColorStop(1,'#12122c');
+    poly([[0,0],[bx1,by1],[bx1,by2],[0,h]],lwg,'#17173a',1);
+    // LED strips on left wall
+    [.18,.44,.72].forEach(frac=>{
+      const tx=0+(bx1-0)*frac, ty=0+(by1-0)*frac;
+      const bx=0+(bx1-0)*frac, by_=h+(by2-h)*frac;
+      const sw=4*(1-frac*.3);
+      const sg=rx.createLinearGradient(tx,ty,bx,by_);
+      sg.addColorStop(0,LC[lightMode<3?lightMode:0].replace('.88','.08'));
+      sg.addColorStop(.5,lightMode<3?LC[lightMode]:'#15152e');
+      sg.addColorStop(1,LC[lightMode<3?lightMode:0].replace('.88','.08'));
+      rx.fillStyle=sg;rx.fillRect(tx-sw/2,ty,sw,by_-ty);
+    });
+
+    // ── Right wall ──
+    const rwg=rx.createLinearGradient(bx2,0,w,0);
+    rwg.addColorStop(0,'#12122c');rwg.addColorStop(1,'#09091a');
+    poly([[bx2,by1],[w,0],[w,h],[bx2,by2]],rwg,'#17173a',1);
+    [.28,.56,.82].forEach(frac=>{
+      const tx=w+(bx2-w)*frac, ty=0+(by1-0)*frac;
+      const bx=w+(bx2-w)*frac, by_=h+(by2-h)*frac;
+      const sw=4*(1-frac*.3);
+      const sg=rx.createLinearGradient(tx,ty,bx,by_);
+      sg.addColorStop(0,LC[lightMode<3?lightMode:0].replace('.88','.08'));
+      sg.addColorStop(.5,lightMode<3?LC[lightMode]:'#15152e');
+      sg.addColorStop(1,LC[lightMode<3?lightMode:0].replace('.88','.08'));
+      rx.fillStyle=sg;rx.fillRect(tx-sw/2,ty,sw,by_-ty);
+    });
+
+    // ── Floor ──
+    const fg=rx.createLinearGradient(0,by2,0,h);
+    fg.addColorStop(0,'#0c0c20');fg.addColorStop(1,'#070710');
+    poly([[0,h],[bx1,by2],[bx2,by2],[w,h]],fg,'#15153a',1);
+    rx.strokeStyle='rgba(255,255,255,.025)';rx.lineWidth=1;
+    for(let i=1;i<9;i++){
+      const t=i/9;
+      rx.beginPath();rx.moveTo(0+(bx1-0)*t,h+(by2-h)*t);rx.lineTo(w+(bx2-w)*t,h+(by2-h)*t);rx.stroke();
+    }
+
+    // ── Back wall ──
+    const bwg=rx.createLinearGradient(bx1,by1,bx2,by2);
+    bwg.addColorStop(0,'#0f0f28');bwg.addColorStop(1,'#0b0b1e');
+    rx.fillStyle=bwg;rx.fillRect(bx1,by1,bx2-bx1,by2-by1);
+    rx.strokeStyle='#1e1e40';rx.lineWidth=1;rx.strokeRect(bx1,by1,bx2-bx1,by2-by1);
+
+    // ── Screen ──
+    const bwW=bx2-bx1,bwH=by2-by1;
+    const sw=bwW*.78,sh=sw/(16/9);
+    const sx=bx1+(bwW-sw)/2,sy=by1+bwH*.07;
+    // Ambient glow
+    const ag=rx.createRadialGradient(sx+sw/2,sy+sh/2,0,sx+sw/2,sy+sh/2,sw*.75);
+    ag.addColorStop(0,'rgba(160,190,255,.2)');ag.addColorStop(1,'transparent');
+    rx.fillStyle=ag;rx.fillRect(bx1,by1,bwW,bwH);
+    // Bezel
+    rx.fillStyle='#04040e';rx.fillRect(sx-5,sy-5,sw+10,sh+10);
+    // Screen gradient
+    const scg=rx.createLinearGradient(sx,sy,sx,sy+sh);
+    scg.addColorStop(0,'#263560');scg.addColorStop(.4,'#182244');scg.addColorStop(1,'#06101e');
+    rx.fillStyle=scg;rx.fillRect(sx,sy,sw,sh);
+    // Scan lines
+    rx.strokeStyle='rgba(255,255,255,.025)';rx.lineWidth=1;
+    for(let y=sy;y<sy+sh;y+=4){rx.beginPath();rx.moveTo(sx,y);rx.lineTo(sx+sw,y);rx.stroke();}
+    // Center glow
+    const scng=rx.createRadialGradient(sx+sw/2,sy+sh*.38,0,sx+sw/2,sy+sh*.38,sw*.45);
+    scng.addColorStop(0,'rgba(100,155,255,.18)');scng.addColorStop(1,'transparent');
+    rx.fillStyle=scng;rx.fillRect(sx,sy,sw,sh);
+    // Screen border
+    rx.strokeStyle='rgba(255,255,255,.18)';rx.lineWidth=1;rx.strokeRect(sx,sy,sw,sh);
+
+    // Screen text
+    if(vizMode!=='audio'){
+      const fs=Math.max(9,sw*.056);
+      rx.font=`bold ${fs}px -apple-system,Arial,sans-serif`;
+      rx.textAlign='center';rx.fillStyle='rgba(255,255,255,.2)';
+      rx.fillText("MBAYU'S HOMETHEATER",sx+sw/2,sy+sh*.48);
+      rx.font=`${Math.max(7,sw*.036)}px Arial`;rx.fillStyle='rgba(255,255,255,.09)';
+      rx.fillText("7.2.4 DOLBY ATMOS  ·  4K LASER  ·  120\" SCREEN",sx+sw/2,sy+sh*.64);
+    }
+
+    // Projector beam
+    if(lightMode<3){
+      const pb=rx.createLinearGradient(w/2,h*.04,sx+sw/2,sy);
+      pb.addColorStop(0,LC[lightMode].replace('.88','.07'));pb.addColorStop(1,'transparent');
+      rx.beginPath();rx.moveTo(w*.5,h*.04);rx.lineTo(sx,sy);rx.lineTo(sx+sw,sy);rx.closePath();
+      rx.fillStyle=pb;rx.fill();
+    }
+    // Projector body
+    rx.fillStyle='#1c1c38';rx.fillRect(w/2-18,1,36,14);
+    rx.fillStyle='#242448';rx.fillRect(w/2-14,3,28,10);
+    rx.beginPath();rx.arc(w/2,13,5,0,Math.PI*2);rx.fillStyle='#363660';rx.fill();
+    rx.strokeStyle='#5050a0';rx.lineWidth=1;rx.stroke();
+
+    // ── Seats ──
+    drawSeats(w,h,bx1,bx2,by1,by2);
+
+    // ── Speaker audio mode overlay ──
+    if(vizMode==='audio'){
+      const spk=(x,y,r)=>{
+        rx.beginPath();rx.arc(x,y,r,0,Math.PI*2);
+        rx.fillStyle='rgba(201,168,76,.35)';rx.fill();
+        rx.strokeStyle='#C9A84C';rx.lineWidth=1.5;rx.stroke();
+        for(let ri=r+5;ri<r+20;ri+=6){
+          rx.beginPath();rx.arc(x,y,ri,0,Math.PI*2);
+          rx.strokeStyle=`rgba(201,168,76,${.35-ri*.012})`;rx.lineWidth=1;rx.stroke();
+        }
+      };
+      // Front L/C/R on back wall
+      spk(sx+sw*.08,sy+sh*.55,6);spk(sx+sw*.5,sy+sh*.08,6);spk(sx+sw*.92,sy+sh*.55,6);
+      // Surround L/R on side walls
+      spk(w*.07,h*.42,6);spk(w*.93,h*.42,6);
+      // Atmos ceiling
+      [[.22,.04],[.5,.04],[.78,.04],[.3,.1],[.7,.1]].forEach(([fx,fy])=>{
+        rx.beginPath();rx.arc(w*fx,h*fy,4,0,Math.PI*2);
+        rx.fillStyle='rgba(201,168,76,.7)';rx.fill();
+      });
+      rx.font=`bold ${Math.max(9,sw*.05)}px Arial`;rx.textAlign='center';
+      rx.fillStyle='rgba(201,168,76,.85)';
+      rx.fillText("7.2.4 DOLBY ATMOS LAYOUT",sx+sw/2,sy+sh*.5);
+      rx.font=`${Math.max(7,sw*.033)}px Arial`;rx.fillStyle='rgba(201,168,76,.5)';
+      rx.fillText("L/C/R  ·  Surround L/R  ·  4× Height",sx+sw/2,sy+sh*.64);
+    }
+
+    // ── Dimension overlay ──
+    if(vizMode==='dims'){
+      rx.strokeStyle='rgba(201,168,76,.7)';rx.lineWidth=1;rx.setLineDash([5,3]);
+      // Width
+      rx.beginPath();rx.moveTo(bx1,by2+10);rx.lineTo(bx2,by2+10);rx.stroke();
+      // Height
+      rx.beginPath();rx.moveTo(bx1-10,by1);rx.lineTo(bx1-10,by2);rx.stroke();
+      rx.setLineDash([]);
+      // Arrows
+      const arr=(x1,y1,x2,y2)=>{
+        const a=Math.atan2(y2-y1,x2-x1);
+        rx.strokeStyle='rgba(201,168,76,.7)';rx.lineWidth=1;
+        rx.beginPath();rx.moveTo(x1,y1);rx.lineTo(x1+8*Math.cos(a+.5),y1+8*Math.sin(a+.5));rx.stroke();
+        rx.beginPath();rx.moveTo(x1,y1);rx.lineTo(x1+8*Math.cos(a-.5),y1+8*Math.sin(a-.5));rx.stroke();
+        rx.beginPath();rx.moveTo(x2,y2);rx.lineTo(x2+8*Math.cos(a+Math.PI+.5),y2+8*Math.sin(a+Math.PI+.5));rx.stroke();
+        rx.beginPath();rx.moveTo(x2,y2);rx.lineTo(x2+8*Math.cos(a+Math.PI-.5),y2+8*Math.sin(a+Math.PI-.5));rx.stroke();
+      };
+      arr(bx1,by2+10,bx2,by2+10);arr(bx1-10,by1,bx1-10,by2);
+      const lf=Math.max(10,bwW*.05);
+      rx.fillStyle='#C9A84C';rx.font=`bold ${lf}px Arial`;rx.textAlign='center';
+      rx.fillText("20' 0\"",(bx1+bx2)/2,by2+26);
+      rx.save();rx.translate(bx1-26,(by1+by2)/2);rx.rotate(-Math.PI/2);rx.fillText("9' 0\"",0,0);rx.restore();
+    }
+  }
+
+  function drawSeats(w,h,bx1,bx2,by1,by2){
+    // Two rows of 3 recliners in perspective
+    [[.3,3],[.58,3]].forEach(([rowFrac,count])=>{
+      const seatsX=[.28,.5,.72];
+      seatsX.forEach(colFrac=>{
+        const lxE=(bx1-0)*rowFrac, rxE=w+(bx2-w)*rowFrac;
+        const sx=lxE+(rxE-lxE)*colFrac;
+        const sy_=h+(by2-h)*rowFrac;
+        const sW=28*(1-rowFrac*.38), sH=16*(1-rowFrac*.38), bkH=sH*1.3;
+        // Cushion
+        rx.fillStyle=rowFrac<.4?'#24244a':'#1c1c3c';
+        rx.beginPath();rx.rect(sx-sW/2,sy_-sH,sW,sH);rx.fill();
+        rx.strokeStyle='#2e2e5a';rx.lineWidth=1;rx.stroke();
+        // Back
+        rx.fillStyle=rowFrac<.4?'#1e1e40':'#18183a';
+        rx.fillRect(sx-sW/2,sy_-sH-bkH,sW,bkH);
+        rx.strokeStyle='#2e2e5a';rx.lineWidth=1;rx.strokeRect(sx-sW/2,sy_-sH-bkH,sW,bkH);
+        // Armrests
+        rx.fillStyle='#2a2a52';
+        rx.fillRect(sx-sW/2-3,sy_-sH-bkH+4,3,sH+bkH-4);
+        rx.fillRect(sx+sW/2,sy_-sH-bkH+4,3,sH+bkH-4);
+        // Headrest
+        rx.fillStyle='#16163a';
+        rx.fillRect(sx-sW/4,sy_-sH-bkH-5,sW/2,7);
+        // Seating mode highlight
+        if(vizMode==='seating'){
+          rx.strokeStyle='#C9A84C';rx.lineWidth=1.5;rx.setLineDash([3,2]);
+          rx.strokeRect(sx-sW/2-6,sy_-sH-bkH-8,sW+12,sH+bkH+8);
+          rx.setLineDash([]);
+        }
+      });
+    });
+  }
+
+  function drawFloor(w,h){
+    rx.fillStyle='#06060f';rx.fillRect(0,0,w,h);
+    const m=48,rw=w-m*2,rh=h-m*2;
+    // Grid
+    rx.strokeStyle='rgba(255,255,255,.04)';rx.lineWidth=1;
+    for(let i=1;i<10;i++){
+      rx.beginPath();rx.moveTo(m+rw*i/10,m);rx.lineTo(m+rw*i/10,m+rh);rx.stroke();
+      rx.beginPath();rx.moveTo(m,m+rh*i/10);rx.lineTo(m+rw,m+rh*i/10);rx.stroke();
+    }
+    // Room outline
+    rx.strokeStyle='rgba(201,168,76,.5)';rx.lineWidth=2.5;rx.strokeRect(m,m,rw,rh);
+    // Screen wall
+    rx.strokeStyle='#4a6ef0';rx.lineWidth=5;
+    rx.beginPath();rx.moveTo(m,m);rx.lineTo(m+rw,m);rx.stroke();
+    // Screen bar
+    const sw=rw*.6;
+    rx.strokeStyle='#3055cc';rx.lineWidth=10;
+    rx.beginPath();rx.moveTo(m+(rw-sw)/2,m);rx.lineTo(m+(rw+sw)/2,m);rx.stroke();
+    rx.fillStyle='#6080f8';rx.font='11px Arial';rx.textAlign='center';
+    rx.fillText('SCREEN  120"',m+rw/2,m-10);
+    // Seats (top-down)
+    [[.3,.52],[.5,.52],[.7,.52],[.3,.72],[.5,.72],[.7,.72]].forEach(([fx,fy])=>{
+      rx.beginPath();rx.arc(m+rw*fx,m+rh*fy,13,0,Math.PI*2);
+      rx.fillStyle='#1c1c40';rx.fill();rx.strokeStyle='#36366a';rx.lineWidth=1.5;rx.stroke();
+    });
+    // LED strips
+    [.22,.5,.78].forEach(fy=>{
+      rx.strokeStyle=lightMode<3?LC[lightMode]:'#25254a';rx.lineWidth=3;
+      rx.beginPath();rx.moveTo(m,m+rh*fy);rx.lineTo(m+14,m+rh*fy);rx.stroke();
+      rx.beginPath();rx.moveTo(m+rw-14,m+rh*fy);rx.lineTo(m+rw,m+rh*fy);rx.stroke();
+    });
+    // Projector
+    rx.beginPath();rx.arc(m+rw/2,m+rh*.38,11,0,Math.PI*2);
+    rx.fillStyle='#1a1a40';rx.fill();rx.strokeStyle='#3636a0';rx.lineWidth=1.5;rx.stroke();
+    rx.fillStyle='#5870f0';rx.font='8px Arial';rx.textAlign='center';rx.fillText('PROJ',m+rw/2,m+rh*.38+3);
+    // Speaker positions
+    if(vizMode==='audio'){
+      [[.2,m,'FL'],[.5,m,'FC'],[.8,m,'FR'],[m,rh*.5+m,'SL'],[m+rw,rh*.5+m,'SR']].forEach(([x,y,lbl])=>{
+        rx.beginPath();rx.arc(x,y,9,0,Math.PI*2);
+        rx.fillStyle='rgba(201,168,76,.3)';rx.fill();rx.strokeStyle='#C9A84C';rx.lineWidth=1;rx.stroke();
+        rx.fillStyle='#C9A84C';rx.font='8px Arial';rx.textAlign='center';rx.fillText(lbl,x,y+3);
+      });
+    }
+    // Dim labels
+    rx.fillStyle='#A09880';rx.font='11px Arial';rx.textAlign='center';
+    rx.fillText("20' 0\"",m+rw/2,h-8);
+    rx.save();rx.translate(14,m+rh/2);rx.rotate(-Math.PI/2);rx.fillText("20' 0\"",0,0);rx.restore();
+  }
+
+  // Dim wireframe box
+  function drawDim(){
+    const dc=document.getElementById('dimCanvas');if(!dc)return;
+    dc.width=dc.offsetWidth;dc.height=dc.offsetHeight;
+    const dctx=dc.getContext('2d');
+    const w=dc.width,h=dc.height;
+    dctx.clearRect(0,0,w,h);
+    const cx=w*.47,cy=h*.52,bw=w*.25,bh=h*.32,bd=h*.2;
+    // 8 box corners (isometric)
+    const p=[
+      [cx-bw,cy-bh],[cx+bw,cy-bh],[cx+bw,cy+bh],[cx-bw,cy+bh],   // front face
+      [cx-bw+bd,cy-bh-bd],[cx+bw+bd,cy-bh-bd],[cx+bw+bd,cy+bh-bd],[cx-bw+bd,cy+bh-bd] // back face
+    ];
+    function face(i,fill){
+      dctx.beginPath();dctx.moveTo(p[i[0]][0],p[i[0]][1]);
+      i.slice(1).forEach(j=>dctx.lineTo(p[j][0],p[j][1]));
+      dctx.closePath();dctx.fillStyle=fill;dctx.fill();
+      dctx.strokeStyle='rgba(201,168,76,.55)';dctx.lineWidth=1;dctx.stroke();
+    }
+    face([0,1,5,4],'rgba(201,168,76,.07)');  // top
+    face([1,2,6,5],'rgba(201,168,76,.04)');  // right
+    face([0,1,2,3],'rgba(201,168,76,.11)');  // front
+    const fs=Math.max(9,w*.052);
+    dctx.fillStyle='#A09880';dctx.font=`${fs}px Arial`;dctx.textAlign='center';
+    dctx.fillText("20' 0\"",(p[0][0]+p[1][0])/2,p[2][1]+16);
+    dctx.save();dctx.translate(p[0][0]-14,(p[0][1]+p[3][1])/2);dctx.rotate(-Math.PI/2);dctx.fillText("9' 0\"",0,0);dctx.restore();
+    dctx.save();dctx.translate(p[1][0]+14,(p[1][1]+p[5][1])/2);dctx.rotate(Math.PI*.22);
+    dctx.fillStyle='rgba(160,152,128,.65)';dctx.fillText("20' 0\"",0,0);dctx.restore();
+  }
+
+  // Toolbar
+  document.querySelectorAll('.viz-tbtn[data-view]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const v=btn.dataset.view;
+      if(v==='light'){lightMode=(lightMode+1)%4;draw();return;}
+      document.querySelectorAll('.viz-tbtn[data-view]').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');vizMode=v;draw();
+    });
+  });
+  document.getElementById('zoomIn')?.addEventListener('click',()=>{zoom=Math.min(1.5,zoom+.12);draw();});
+  document.getElementById('zoomOut')?.addEventListener('click',()=>{zoom=Math.max(.55,zoom-.12);draw();});
+
+  // Init
+  const ro=new ResizeObserver(resize);ro.observe(rc);resize();
+  const dro=new ResizeObserver(drawDim);
+  const dc=document.getElementById('dimCanvas');if(dc)dro.observe(dc);
+  drawDim();
+})();
+
+// ── Scroll fade-in ──
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});
+},{threshold:.1});
+document.querySelectorAll('.process-step,.testimonial-card,.blog-card,.service-item').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .5s ease, transform .5s ease';
+  observer.observe(el);
+});
+</script>
