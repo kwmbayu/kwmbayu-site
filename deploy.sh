@@ -2,8 +2,8 @@
 # ============================================================
 # DEPLOY SCRIPT — Mbayu's Hometheater Website
 #
-# Uploads index.html to S3 and invalidates CloudFront cache (if configured).
-# Run this from the kwmbayu-site directory after making changes.
+# Uploads index.html to S3 and clears the CloudFront cache
+# so visitors see your changes immediately (not the cached old version).
 #
 # Usage:
 #   chmod +x deploy.sh   (first time only)
@@ -11,16 +11,25 @@
 # ============================================================
 
 BUCKET="kwmbayu.com"
+CF_DISTRIBUTION="E1PMHG26BCDN7"
 REGION="us-east-1"
 
-echo "🚀 Deploying to s3://$BUCKET ..."
-
+echo "🚀 Uploading to S3..."
 aws s3 cp index.html s3://$BUCKET/index.html \
   --content-type "text/html" \
   --region $REGION
 
-echo "✅ Done! Site is live at:"
-echo "   http://kwmbayu.com"
-echo "   http://kwmbayu.com.s3-website-$REGION.amazonaws.com (S3 direct)"
+echo "🔄 Clearing CloudFront cache (so changes appear instantly)..."
+aws cloudfront create-invalidation \
+  --distribution-id $CF_DISTRIBUTION \
+  --paths "/*" \
+  --region us-east-1
+
 echo ""
-echo "⏳ DNS propagation takes 1–5 minutes if you just updated Route 53."
+echo "✅ Done! Your site will be live at:"
+echo "   https://kwmbayu.com        ← main address (HTTPS)"
+echo "   https://www.kwmbayu.com    ← redirects to above"
+echo ""
+echo "⏳ CloudFront takes 5–10 min to fully deploy worldwide."
+echo "   You can check progress at:"
+echo "   https://console.aws.amazon.com/cloudfront/home#/distributions/E1PMHG26BCDN7"
